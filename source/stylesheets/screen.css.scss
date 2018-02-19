@@ -65,10 +65,10 @@ html, body {
   // language selector for mobile devices
   .lang-selector {
     display: none;
-    a {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
-    }
+    // a {
+    //   padding-top: 0.5em;
+    //   padding-bottom: 0.5em;
+    // }
   }
 
   // This is the logo at the top of the ToC
@@ -233,24 +233,26 @@ html, body {
 #nav-button {
   span {
     display: block;
+    width: 200px;
     $side-pad: $main-padding / 2 - 8px;
     padding: $side-pad $side-pad $side-pad;
-    background-color: rgba($main-bg, 0.7);
     transform-origin: 0 0;
     transform: rotate(-90deg) translate(-100%, 0);
-    border-radius: 0 0 0 5px;
+    text-align: right;
   }
-  padding: 0 1.5em 5em 0; // increase touch size area
   display: none;
   position: fixed;
   top: 0;
+  bottom: 0;
   left: 0;
   z-index: 100;
+  width: 25px;
   color: #000;
   text-decoration: none;
-  font-weight: bold;
-  opacity: 0.7;
   line-height: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  // opacity: 0.7;
   img {
     height: 16px;
     vertical-align: bottom;
@@ -259,7 +261,10 @@ html, body {
   transition: left 0.3s ease-in-out;
 
   &:hover { opacity: 1; }
-  &.open {left: $nav-width}
+  &.open {
+    left: $nav-width;
+    background: transparent;
+  }
 }
 
 
@@ -312,6 +317,7 @@ html, body {
     text-decoration: none;
     line-height: 30px;
     letter-spacing: 0.93px;
+    border: 1px solid #506B6B;
     border-radius: 2px;
     outline: 0;
     
@@ -319,11 +325,9 @@ html, body {
       margin-right: 10px;
     }
     
-    &:hover {
-      padding: 0 10px;
-      border: 1px solid #506B6B;
-      // background-image: $lang-select-hover-bg;
-    }
+    // &:hover {
+    //   // padding: 0 10px;
+    // }
     
     // &:active, &:focus {
     //   background-color: $lang-select-pressed-bg;
@@ -407,6 +411,11 @@ html, body {
     margin-bottom: 0;
     padding-top: 1.2em;
     padding-bottom: 1.2em;
+  }
+
+  h1, h2 {
+    color: $title-text;
+    font-weight: 600;
   }
 
   // h2s right after h1s should bump right up
@@ -614,6 +623,9 @@ html, body {
 // There are also a couple styles disperesed
 
 @media (max-width: $tablet-width) {
+  .content {
+    padding-left: 2%;
+  }
   .toc-wrapper {
     left: -$nav-width;
 
@@ -621,9 +633,12 @@ html, body {
       left: 0;
     }
   }
-
   .page-wrapper {
     margin-left: 0;
+
+    .dark-box {
+      width: 49%;
+    }
   }
 
   #nav-button {
@@ -647,6 +662,15 @@ html, body {
 
   .toc-wrapper .lang-selector {
     display: block;
+  }
+
+  .lang-selector {
+    width: auto;
+    padding: 10px 10px 0;
+
+    a {
+      margin: 0 10px 10px 0;
+    }
   }
 
   .page-wrapper .lang-selector {
